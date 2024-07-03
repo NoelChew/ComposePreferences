@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
+import de.schnettler.datastore.compose.material3.getItemDelimiterInCompose
 import de.schnettler.datastore.compose.material3.model.Preference.PreferenceItem.MultiSelectListPreference
 
 @ExperimentalMaterial3Api
@@ -27,9 +28,10 @@ internal fun MultiSelectListPreferenceWidget(
     values: Set<String>,
     onValuesChange: (Set<String>) -> Unit
 ) {
+    val delimiter = getItemDelimiterInCompose()
     val (isDialogShown, showDialog) = remember { mutableStateOf(false) }
     val description = preference.entries.filter { values.contains(it.key) }.map { it.value }
-        .joinToString(separator = ", ", limit = 3)
+        .joinToString(separator = delimiter, limit = 3)
 
     TextPreferenceWidget(
         preference = preference,
