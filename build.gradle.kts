@@ -20,7 +20,7 @@ allprojects {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
         kotlinOptions.freeCompilerArgs += listOf( "-Xopt-in=kotlin.RequiresOptIn",
             "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi")
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
