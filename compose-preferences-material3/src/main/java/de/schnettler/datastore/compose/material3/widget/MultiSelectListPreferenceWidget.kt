@@ -30,8 +30,14 @@ internal fun MultiSelectListPreferenceWidget(
 ) {
     val delimiter = getItemDelimiterInCompose()
     val (isDialogShown, showDialog) = remember { mutableStateOf(false) }
-    val description = preference.entries.filter { values.contains(it.key) }.map { it.value }
-        .joinToString(separator = delimiter, limit = 3)
+    val description = if (preference.customSummaryTextWhenAllAreSelected != null && preference.entries.all {
+            values.contains(it.key)
+        }) {
+        preference.customSummaryTextWhenAllAreSelected
+    } else {
+        preference.entries.filter { values.contains(it.key) }.map { it.value }
+            .joinToString(separator = delimiter, limit = preference.displayLimit)
+    }
 
     TextPreferenceWidget(
         preference = preference,

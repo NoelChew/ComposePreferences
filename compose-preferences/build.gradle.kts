@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
@@ -20,7 +20,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = versionFor(AndroidX.compose.material)
+        kotlinCompilerExtensionVersion = versionFor(AndroidX.compose.compiler)
     }
 }
 
@@ -30,5 +30,4 @@ dependencies {
 
     // Compose
     implementation(AndroidX.compose.material)
-    implementation(Google.accompanist.insets)
 }

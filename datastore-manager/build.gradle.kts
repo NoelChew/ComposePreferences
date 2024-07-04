@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
@@ -14,6 +14,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    namespace = "de.schnettler.datastore.manager"
 }
 
 dependencies {
