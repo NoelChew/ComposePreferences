@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
@@ -20,8 +20,9 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = versionFor(AndroidX.compose.material)
+        kotlinCompilerExtensionVersion = versionFor(AndroidX.compose.compiler)
     }
+    namespace = "de.schnettler.datastore.compose.material3"
 }
 
 dependencies {
@@ -31,7 +32,6 @@ dependencies {
     // Compose
     implementation(AndroidX.compose.material)
     implementation(AndroidX.compose.material3)
-    implementation(Google.accompanist.insets)
 }
 
 afterEvaluate {

@@ -71,6 +71,8 @@ sealed class Preference {
             override val enabled: Boolean = true,
 
             val entries: Map<String, String>,
+            val displayLimit: Int = 3,
+            val customSummaryTextWhenAllAreSelected: String? = null,
         ) : PreferenceItem<Set<String>>()
 
         /**

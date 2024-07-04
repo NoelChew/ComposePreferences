@@ -13,6 +13,7 @@ import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Warning
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SmallTopAppBar
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -120,7 +121,9 @@ fun AppPreferenceScreen() {
                     "key18" to "Item18",
                     "key19" to "Item19",
                     "key20" to "Item20"
-                )
+                ),
+                displayLimit = 7,
+                customSummaryTextWhenAllAreSelected = "All are selected."
             ),
             PreferenceItem.DropDownMenuPreference(
                 request = DropDownPrefExample,
@@ -162,9 +165,7 @@ fun AppPreferenceScreen() {
 
     Scaffold(
         topBar = {
-            SmallTopAppBar(
-                title = { Text(text = "Compose Preferences") }
-            )
+            TopAppBar(title = { Text(text = "Compose Preferences") })
         },
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
